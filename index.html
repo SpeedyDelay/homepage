@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Homepage</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Hides the default cursor */
+        }
+
+        /* Black and white theme */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Container for shortcuts and search bar */
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        /* Shortcuts */
+        .shortcuts {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .shortcut {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .shortcut:hover {
+            color: #aaaaaa;
+        }
+
+        /* Brave search bar */
+        .search-bar {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #ffffff;
+            color: #121212;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .search-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Custom cursor */
+        .cursor {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.1s ease;
+        }
+
+        /* Cursor animation on hover */
+        .shortcut:hover ~ .cursor {
+            background-color: #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome</h1>
+
+        <!-- Shortcuts Section -->
+        <div class="shortcuts">
+            <a href="https://addons.mozilla.org/" class="shortcut" target="_blank">Add-ons</a>
+            <a href="https://wiki.archlinux.org/" class="shortcut" target="_blank">Arch Wiki</a>
+            <a href="https://www.youtube.com/" class="shortcut" target="_blank">YouTube</a>
+            <a href="https://feedly.com/" class="shortcut" target="_blank">Feedly</a>
+        </div>
+
+        <!-- Search Bar -->
+        <form class="search-bar" action="https://search.brave.com/search" method="get">
+            <input type="text" name="q" placeholder="Search Brave..." class="search-input">
+            <button type="submit" class="search-button">Go</button>
+        </form>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="custom-cursor"></div>
+
+    <script>
+        // JavaScript for custom cursor movement
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.getElementById('custom-cursor');
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+    </script>
+</body>
+</html>
+
