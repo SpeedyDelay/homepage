@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Homepage</title>
     <style>
-        /* Basic reset */
+        /* Your existing styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Hides the default cursor */
+            cursor: none;
         }
-
-        /* Black and white theme */
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -24,26 +22,20 @@
             justify-content: center;
             height: 100vh;
         }
-
-        /* Container for shortcuts and search bar */
         .container {
             text-align: center;
             max-width: 600px;
         }
-
         h1 {
             margin-bottom: 20px;
             font-size: 2rem;
             color: #ffffff;
         }
-
-        /* Shortcuts */
         .shortcuts {
             display: flex;
             justify-content: space-around;
             margin-bottom: 30px;
         }
-
         .shortcut {
             color: #ffffff;
             text-decoration: none;
@@ -51,18 +43,14 @@
             padding: 10px;
             transition: color 0.3s;
         }
-
         .shortcut:hover {
             color: #aaaaaa;
         }
-
-        /* Brave search bar */
         .search-bar {
             display: flex;
             width: 100%;
             margin-top: 10px;
         }
-
         .search-input {
             width: 100%;
             padding: 10px;
@@ -71,7 +59,6 @@
             outline: none;
             font-size: 1rem;
         }
-
         .search-button {
             padding: 10px 15px;
             border: none;
@@ -81,12 +68,9 @@
             cursor: pointer;
             font-size: 1rem;
         }
-
         .search-button:hover {
             background-color: #e0e0e0;
         }
-
-        /* Custom cursor */
         .cursor {
             position: absolute;
             width: 10px;
@@ -97,8 +81,6 @@
             transform: translate(-50%, -50%);
             transition: background-color 0.1s ease;
         }
-
-        /* Cursor animation on hover */
         .shortcut:hover ~ .cursor {
             background-color: #aaaaaa;
         }
@@ -118,7 +100,7 @@
 
         <!-- Search Bar -->
         <form class="search-bar" action="https://search.brave.com/search" method="get">
-            <input type="text" name="q" placeholder="Search Brave..." class="search-input">
+            <input type="text" id="search-input" name="q" placeholder="Search Brave..." class="search-input">
             <button type="submit" class="search-button">Go</button>
         </form>
     </div>
@@ -133,7 +115,11 @@
             cursor.style.left = e.pageX + 'px';
             cursor.style.top = e.pageY + 'px';
         });
+
+        // JavaScript to focus on the search input when the page loads
+        window.onload = function() {
+            document.getElementById("search-input").focus();
+        };
     </script>
 </body>
 </html>
-
